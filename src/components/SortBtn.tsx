@@ -2,6 +2,8 @@ import React from "react";
 import logo from "./logo.svg";
 import bubbleSort from "../algorithms/bubbleSort";
 
+const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+
 interface Sort {
   sort: string;
   arr: number[];
@@ -9,7 +11,9 @@ interface Sort {
 
 function SortBtn(props: Sort) {
   return (
-    <button onClick={() => bubbleSort(props.arr)}>{props.sort}Sort</button>
+    <button onClick={() => bubbleSort(props.arr, delay)}>
+      {props.sort}Sort
+    </button>
   );
 }
 

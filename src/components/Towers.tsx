@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 
 interface divs {
-  arr: Array<number>;
+  arr: number[];
 }
 
 function Towers(props: divs) {
