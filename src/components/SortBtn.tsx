@@ -1,7 +1,11 @@
 import React from "react";
 import logo from "./logo.svg";
 
-function SortBtn(props: any) {
+interface Sort {
+  sort: string;
+}
+
+function SortBtn(props: Sort) {
   return <button>{props.sort} Sort</button>;
 }
 

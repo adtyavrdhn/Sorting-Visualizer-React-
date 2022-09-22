@@ -3,3 +3,14 @@
   margin: 0;
   padding: 0;
 }
+
+.tower {
+  width: 2.5rem;
+}
+
+.TowerContainer {
+  height: 100vh;
+  display: flex;
+  gap: 1rem;
+  margin-top: 15px;
+}

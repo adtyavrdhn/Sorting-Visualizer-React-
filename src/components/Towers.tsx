@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./logo.svg";
 
-function Towers(props: any) {
+interface divs {
+  arr: Array<number>;
+}
+
+function Towers(props: divs) {
   const arr = props.arr;
   const towers = arr.map((n: number) => (
-    <div className={"h-" + n + "px w-10px bg-black"} key={n}>
-      {n}
-    </div>
+    <div
+      className={"bg-black tower"}
+      key={n}
+      style={{ height: `${n}px` }}
+    ></div>
   ));
 
-  return <div className="TowerContainer flex gap-10px">{towers}</div>;
+  return <div className="TowerContainer flex justify-center">{towers}</div>;
 }
 
 export default Towers;
