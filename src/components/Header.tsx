@@ -9,9 +9,9 @@ interface ChangeInput {
   speed: number;
   setSpeed: Function;
   arr: number[];
+  towers: JSX.Element[];
+  HandleChange: Function;
 }
-
-function HandleChange(val: number) {}
 function Header(props: ChangeInput) {
   return (
     <div className="Header flex justify-around align-center">
@@ -37,11 +37,36 @@ function Header(props: ChangeInput) {
         ></RangeSlider>
       </div>
       <div className="SortButtonContainer flex gap-5 self-end">
-        <SortBtn sort={"Bubble"} arr={props.arr}></SortBtn>
-        <SortBtn sort={"Heap"} arr={props.arr}></SortBtn>
-        <SortBtn sort={"Merge"} arr={props.arr}></SortBtn>
-        <SortBtn sort={"Insertion"} arr={props.arr}></SortBtn>
-        <SortBtn sort={"Selection"} arr={props.arr}></SortBtn>
+        <SortBtn
+          sort={"Bubble"}
+          arr={props.arr}
+          towers={props.towers}
+          HandleChange={props.HandleChange}
+        ></SortBtn>
+        <SortBtn
+          sort={"Heap"}
+          arr={props.arr}
+          towers={props.towers}
+          HandleChange={props.HandleChange}
+        ></SortBtn>
+        <SortBtn
+          sort={"Merge"}
+          arr={props.arr}
+          towers={props.towers}
+          HandleChange={props.HandleChange}
+        ></SortBtn>
+        <SortBtn
+          sort={"Insertion"}
+          arr={props.arr}
+          towers={props.towers}
+          HandleChange={props.HandleChange}
+        ></SortBtn>
+        <SortBtn
+          sort={"Selection"}
+          arr={props.arr}
+          towers={props.towers}
+          HandleChange={props.HandleChange}
+        ></SortBtn>
       </div>
     </div>
   );
