@@ -11,6 +11,6 @@
 .TowerContainer {
   height: 100vh;
   display: flex;
-  gap: 1rem;
+  gap: 0.6rem;
   margin-top: 15px;
 }

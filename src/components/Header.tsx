@@ -3,7 +3,11 @@ import RangeSlider from "./RangeSlider";
 import SortBtn from "./SortBtn";
 import logo from "./logo.svg";
 
-function Header() {
+interface ChangeInput {
+  sizeValue: number;
+  setSizeValue: Function;
+}
+function Header(props: ChangeInput) {
   return (
     <div className="Header flex justify-around align-center">
       <div className="RangeSliderContainer self-start">
@@ -20,6 +24,8 @@ function Header() {
           maximum={100}
           initialvalue={60}
           step={10}
+          value={props.sizeValue}
+          setSizeValue={props.setSizeValue}
         ></RangeSlider>
       </div>
       <div className="SortButtonContainer flex gap-5 self-end">

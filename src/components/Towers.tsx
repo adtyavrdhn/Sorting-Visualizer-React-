@@ -11,7 +11,7 @@ function Towers(props: divs) {
     <div
       className={"bg-black tower"}
       key={n}
-      style={{ height: `${n}px` }}
+      style={{ height: `${n / 7}rem` }}
     ></div>
   ));
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./logo.svg";
 
 function RangeSlider(props: any) {
@@ -15,6 +15,7 @@ function RangeSlider(props: any) {
         name={props.type}
         id={props.type + "-slider"}
         step={props.step}
+        onChange={(event: any) => props.setSizeValue(event.target.value)}
       />
     </div>
   );
