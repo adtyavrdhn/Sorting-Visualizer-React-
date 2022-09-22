@@ -12,7 +12,7 @@ interface Sort {
 function SortBtn(props: Sort) {
   return (
     <button onClick={() => bubbleSort(props.arr, delay)}>
-      {props.sort}Sort
+      {props.sort} Sort
     </button>
   );
 }

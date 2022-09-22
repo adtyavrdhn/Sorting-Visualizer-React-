@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "tailwindcss/tailwind.css";
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header";
 import Towers from "./components/Towers";
@@ -8,8 +7,8 @@ import Towers from "./components/Towers";
 function App(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
   const [speed, setSpeed] = useState(10);
-
   let arr = [];
+  let towers = [];
   while (arr.length < sizeValue) {
     var r = Math.floor(Math.random() * 100) + 50;
     if (arr.indexOf(r) === -1) arr.push(r);
