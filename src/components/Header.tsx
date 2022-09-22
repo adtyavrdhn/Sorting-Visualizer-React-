@@ -6,7 +6,12 @@ import logo from "./logo.svg";
 interface ChangeInput {
   sizeValue: number;
   setSizeValue: Function;
+  speed: number;
+  setSpeed: Function;
+  arr: number[];
 }
+
+function HandleChange(val: number) {}
 function Header(props: ChangeInput) {
   return (
     <div className="Header flex justify-around align-center">
@@ -17,6 +22,9 @@ function Header(props: ChangeInput) {
           maximum={100}
           initialvalue={60}
           step={10}
+          value={props.speed}
+          setSizeValue={props.setSpeed}
+          disabled={true}
         ></RangeSlider>
         <RangeSlider
           type={"size"}
@@ -29,11 +37,11 @@ function Header(props: ChangeInput) {
         ></RangeSlider>
       </div>
       <div className="SortButtonContainer flex gap-5 self-end">
-        <SortBtn sort={"Bubble"}></SortBtn>
-        <SortBtn sort={"Heap"}></SortBtn>
-        <SortBtn sort={"Merge"}></SortBtn>
-        <SortBtn sort={"Insertion"}></SortBtn>
-        <SortBtn sort={"Selection"}></SortBtn>
+        <SortBtn sort={"Bubble"} arr={props.arr}></SortBtn>
+        <SortBtn sort={"Heap"} arr={props.arr}></SortBtn>
+        <SortBtn sort={"Merge"} arr={props.arr}></SortBtn>
+        <SortBtn sort={"Insertion"} arr={props.arr}></SortBtn>
+        <SortBtn sort={"Selection"} arr={props.arr}></SortBtn>
       </div>
     </div>
   );
