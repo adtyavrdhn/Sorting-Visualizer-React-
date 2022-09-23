@@ -4,26 +4,29 @@ import bubbleSort from "./algorithms/bubbleSort";
 import "./App.css";
 import Header from "./components/Header";
 import Towers from "./components/Towers";
-import { delay } from "./algorithms/utility";
+import { delay, swap } from "./algorithms/utility";
+
+let arr: number[] = [];
+let trace: number[][] = [];
 
 function App(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
   const [speed, setSpeed] = useState(20);
   let [towers, setTowers] = useState<JSX.Element[]>([]);
 
-  let arr: number[] = [];
-  let temptowers: JSX.Element[] = [];
-
   function initTowers() {
-    temptowers = arr.map((n: number) => (
+    let temptowers: JSX.Element[] = arr.map((n: number) => (
       <div
         className={"bg-black tower"}
         key={n}
         style={{ height: `${n / 7}rem` }}
       ></div>
     ));
-
     setTowers(temptowers);
+  }
+
+  function sort() {
+    bubbleSort(arr, delay, trace, initTowers);
   }
 
   function initarr() {
@@ -33,11 +36,6 @@ function App(props: any) {
     }
     initTowers();
   }
-  // useEffect(() => {
-  //   console.log("YES"); keeping this will end up in an infinite loop no idea why
-  //   initarr();
-  // });
-
   useEffect(() => {
     initarr();
   }, [sizeValue]);
@@ -49,6 +47,7 @@ function App(props: any) {
     setSpeed: setSpeed,
     arr: arr,
     towers: towers,
+    sort: sort,
   };
   return (
     <div className="App">

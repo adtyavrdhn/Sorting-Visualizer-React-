@@ -10,6 +10,7 @@ interface ChangeInput {
   setSpeed: Function;
   arr: number[];
   towers: JSX.Element[];
+  sort: Function;
 }
 function Header(props: ChangeInput) {
   return (
@@ -36,21 +37,34 @@ function Header(props: ChangeInput) {
       </div>
       <div className="SortButtonContainer flex gap-5 self-end">
         <SortBtn
-          sort={"Bubble"}
+          sortingAlgo={"Bubble"}
           arr={props.arr}
           towers={props.towers}
-        ></SortBtn>
-        <SortBtn sort={"Heap"} arr={props.arr} towers={props.towers}></SortBtn>
-        <SortBtn sort={"Merge"} arr={props.arr} towers={props.towers}></SortBtn>
-        <SortBtn
-          sort={"Insertion"}
-          arr={props.arr}
-          towers={props.towers}
+          sort={props.sort}
         ></SortBtn>
         <SortBtn
-          sort={"Selection"}
+          sortingAlgo={"Heap"}
           arr={props.arr}
           towers={props.towers}
+          sort={props.sort}
+        ></SortBtn>
+        <SortBtn
+          sortingAlgo={"Merge"}
+          arr={props.arr}
+          towers={props.towers}
+          sort={props.sort}
+        ></SortBtn>
+        <SortBtn
+          sortingAlgo={"Insertion"}
+          arr={props.arr}
+          towers={props.towers}
+          sort={props.sort}
+        ></SortBtn>
+        <SortBtn
+          sortingAlgo={"Selection"}
+          arr={props.arr}
+          towers={props.towers}
+          sort={props.sort}
         ></SortBtn>
       </div>
     </div>
