@@ -13,11 +13,10 @@ export default async function selectionSort(
     // Find the minimum element in unsorted array
     min_idx = i;
     for (j = i + 1; j < n; j++) {
-      if (arr[j] < arr[min_idx]) {
-        min_idx = j;
-      }
-      await delay(35);
+      await delay(5);
+      if (arr[j] < arr[min_idx]) min_idx = j;
     }
+
     // Swap the found minimum element with the first element
     swap(arr, min_idx, i);
     await delay(35);
