@@ -1,6 +1,9 @@
 import { delay, swap } from "./utility";
+
 export default async function bubbleSort(arr: number[], initTowers: Function) {
   let size = arr.length;
+
+  console.log("Bubble Sort");
 
   for (let i = 0; i < size; i++) {
     for (let j = 0; j < size - i - 1; j++) {

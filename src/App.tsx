@@ -15,6 +15,8 @@ let arr: number[] = [];
 function App(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
   const [speed, setSpeed] = useState(20);
+  const [algo, setAlgo] = useState("");
+  const [sorted, setSorted] = useState(false);
   let [towers, setTowers] = useState<JSX.Element[]>([]);
 
   function initTowers() {
@@ -28,27 +30,38 @@ function App(props: any) {
     setTowers(temptowers);
   }
 
+  // useEffect(() => {
+  //   if (speed !== undefined && sizeValue !== undefined && algo !== undefined) {
+  //     if (sorted !== true) {
+  //       setTimeout(() => setSortedArray(sortingAlgorithm(input)), speed);
+  //     }
+  //   }
+  // }, [sizeValue, sorted, speed]);
+
   function sort(event: any) {
     let algorithm: string = event.target.innerHTML;
 
     switch (algorithm) {
       case "Bubble Sort":
-        bubbleSort(arr, initTowers);
+        bubbleSort(arr, initTowers), setSorted((sorted) => !sorted);
         break;
       case "Quick Sort":
-        quickSort(arr, 0, arr.length - 1, initTowers);
+        quickSort(arr, 0, arr.length - 1, initTowers),
+          setSorted((sorted) => !sorted);
         break;
       case "Selection Sort":
-        selectionSort(arr, arr.length, initTowers);
+        selectionSort(arr, arr.length, initTowers),
+          setSorted((sorted) => !sorted);
         break;
       case "Insertion Sort":
-        insertionSort(arr, arr.length, initTowers);
+        insertionSort(arr, arr.length, initTowers),
+          setSorted((sorted) => !sorted);
         break;
       // case "Heap Sort":
       //   heapSort(arr, initTowers);
       //   break;
       case "Merge Sort":
-        MergeSort(arr, initTowers);
+        MergeSort(arr, initTowers), setSorted((sorted) => !sorted);
         break;
     }
   }
@@ -63,7 +76,6 @@ function App(props: any) {
   }
   useEffect(() => {
     initarr();
-    console.log("YES");
   }, [sizeValue]);
 
   const Headerprops = {

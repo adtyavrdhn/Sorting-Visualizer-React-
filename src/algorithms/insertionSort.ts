@@ -5,6 +5,7 @@ export default async function insertionSort(
   n: number,
   initTowers: Function
 ) {
+  console.log("Insertion Sort");
   let i, key, j;
   for (i = 1; i < n; i++) {
     key = arr[i];

@@ -1,9 +1,11 @@
 import { delay, swap } from "./utility";
+
 export default async function selectionSort(
   arr: number[],
   n: number,
   initTowers: Function
 ) {
+  console.log("Selection Sort");
   var i, j, min_idx;
 
   // One by one move boundary of unsorted subarray
