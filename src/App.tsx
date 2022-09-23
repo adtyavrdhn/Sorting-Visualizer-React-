@@ -7,6 +7,7 @@ import Towers from "./components/Towers";
 import { delay, swap } from "./algorithms/utility";
 import quickSort from "./algorithms/quickSort";
 import selectionSort from "./algorithms/SelectionSort";
+import insertionSort from "./algorithms/insertionSort";
 
 let arr: number[] = [];
 
@@ -38,6 +39,10 @@ function App(props: any) {
         break;
       case "Selection Sort":
         selectionSort(arr, arr.length, initTowers);
+        break;
+      case "Insertion Sort":
+        insertionSort(arr, arr.length, initTowers);
+        break;
     }
   }
 
