@@ -50,6 +50,14 @@ async function merge(
     }
   }
 
-  while (i1 <= m) (list[i++] = res[i1++ - l]), await delay(25), initTowers();
-  while (i2 <= m) (list[i++] = res[i2++ - l]), await delay(25), initTowers();
+  while (i1 <= m) {
+    list[i++] = res[i1++ - l];
+    await delay(25);
+    initTowers();
+  }
+  while (i2 <= m) {
+    list[i++] = res[i2++ - l];
+    await delay(25);
+    initTowers();
+  }
 }
