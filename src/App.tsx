@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "tailwindcss/tailwind.css";
-import bubbleSort from "./algorithms/bubbleSort";
 import "./App.css";
 import Header from "./components/Header";
 import Towers from "./components/Towers";
-import { delay, swap } from "./algorithms/utility";
+import bubbleSort from "./algorithms/bubbleSort";
 import quickSort from "./algorithms/quickSort";
 import selectionSort from "./algorithms/SelectionSort";
 import insertionSort from "./algorithms/insertionSort";
+// import heapSort from "./algorithms/heapSort";
+import MergeSort from "./algorithms/mergeSort";
 
 let arr: number[] = [];
 
@@ -17,10 +18,10 @@ function App(props: any) {
   let [towers, setTowers] = useState<JSX.Element[]>([]);
 
   function initTowers() {
-    let temptowers: JSX.Element[] = arr.map((n: number) => (
+    let temptowers: JSX.Element[] = arr.map((n: number, index: number) => (
       <div
         className={"bg-black tower"}
-        key={n}
+        key={index}
         style={{ height: `${n / 7}rem` }}
       ></div>
     ));
@@ -43,6 +44,12 @@ function App(props: any) {
       case "Insertion Sort":
         insertionSort(arr, arr.length, initTowers);
         break;
+      // case "Heap Sort":
+      //   heapSort(arr, initTowers);
+      //   break;
+      case "Merge Sort":
+        MergeSort(arr, initTowers);
+        break;
     }
   }
 
@@ -55,6 +62,7 @@ function App(props: any) {
   }
   useEffect(() => {
     initarr();
+    console.log("YES");
   }, [sizeValue]);
 
   const Headerprops = {
