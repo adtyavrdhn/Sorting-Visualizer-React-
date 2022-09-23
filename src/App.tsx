@@ -5,9 +5,10 @@ import "./App.css";
 import Header from "./components/Header";
 import Towers from "./components/Towers";
 import { delay, swap } from "./algorithms/utility";
+import quickSort from "./algorithms/quickSort";
+import selectionSort from "./algorithms/SelectionSort";
 
 let arr: number[] = [];
-let trace: number[][] = [];
 
 function App(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
@@ -25,8 +26,19 @@ function App(props: any) {
     setTowers(temptowers);
   }
 
-  function sort() {
-    bubbleSort(arr, delay, trace, initTowers);
+  function sort(event: any) {
+    let algorithm: string = event.target.innerHTML;
+
+    switch (algorithm) {
+      case "Bubble Sort":
+        bubbleSort(arr, initTowers);
+        break;
+      case "Quick Sort":
+        quickSort(arr, 0, arr.length - 1, initTowers);
+        break;
+      case "Selection Sort":
+        selectionSort(arr, arr.length, initTowers);
+    }
   }
 
   function initarr() {

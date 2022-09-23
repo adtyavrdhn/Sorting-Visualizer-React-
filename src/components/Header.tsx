@@ -66,6 +66,12 @@ function Header(props: ChangeInput) {
           towers={props.towers}
           sort={props.sort}
         ></SortBtn>
+        <SortBtn
+          sortingAlgo={"Quick"}
+          arr={props.arr}
+          towers={props.towers}
+          sort={props.sort}
+        ></SortBtn>
       </div>
     </div>
   );
