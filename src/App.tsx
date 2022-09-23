@@ -8,7 +8,7 @@ import { delay } from "./algorithms/utility";
 
 function App(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
-  const [speed, setSpeed] = useState(10);
+  const [speed, setSpeed] = useState(20);
   let [towers, setTowers] = useState<JSX.Element[]>([]);
 
   let arr: number[] = [];

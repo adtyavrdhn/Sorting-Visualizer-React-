@@ -23,7 +23,6 @@ function Header(props: ChangeInput) {
           step={10}
           value={props.speed}
           setVal={props.setSpeed}
-          disabled={true}
         ></RangeSlider>
         <RangeSlider
           type={"size"}
