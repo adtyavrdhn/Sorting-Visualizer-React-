@@ -35,22 +35,19 @@ function App(props: any) {
 
     switch (algorithm) {
       case "Bubble Sort":
-        bubbleSort(arr, initTowers), setSorted((sorted) => !sorted);
+        bubbleSort(arr, initTowers);
         break;
       case "Quick Sort":
-        quickSort(arr, 0, arr.length - 1, initTowers),
-          setSorted((sorted) => !sorted);
+        quickSort(arr, 0, arr.length - 1, initTowers);
         break;
       case "Selection Sort":
-        selectionSort(arr, arr.length, initTowers),
-          setSorted((sorted) => !sorted);
+        selectionSort(arr, arr.length, initTowers);
         break;
       case "Insertion Sort":
-        insertionSort(arr, arr.length, initTowers),
-          setSorted((sorted) => !sorted);
+        insertionSort(arr, arr.length, initTowers);
         break;
       case "Merge Sort":
-        MergeSort(arr, initTowers), setSorted((sorted) => !sorted);
+        MergeSort(arr, initTowers);
         break;
     }
   }
