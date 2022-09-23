@@ -4,6 +4,8 @@ import { delay } from "./utility";
 export default async function mergeSort(list: number[], initTowers: Function) {
   console.log("Merge Sort");
   mergseSortRange(list, 0, list.length - 1, initTowers);
+
+  return list;
 }
 
 async function mergseSortRange(

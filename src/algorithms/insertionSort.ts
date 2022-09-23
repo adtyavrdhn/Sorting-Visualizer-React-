@@ -19,4 +19,6 @@ export default async function insertionSort(
     initTowers();
     await delay(35);
   }
+
+  return arr;
 }

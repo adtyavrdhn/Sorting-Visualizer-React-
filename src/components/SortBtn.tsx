@@ -13,11 +13,7 @@ interface Sort {
 }
 
 function SortBtn(props: any) {
-  return (
-    <button onClick={() => props.setAlgo(props.sortingAlgo + " Sort")}>
-      {props.sortingAlgo} Sort
-    </button>
-  );
+  return <button onClick={props.sort}>{props.sortingAlgo} Sort</button>;
 }
 
 export default SortBtn;

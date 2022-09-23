@@ -7,9 +7,7 @@ interface divs {
 }
 
 function Towers(props: divs) {
-  return (
-    <div className="TowerContainer flex justify-center">{props.towers}</div>
-  );
+  return <div className="TowerContainer justify-center">{props.towers}</div>;
 }
 
 export default Towers;

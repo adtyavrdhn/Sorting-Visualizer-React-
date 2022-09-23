@@ -17,7 +17,7 @@ function Header(props: ChangeInput) {
   return (
     <div className="Header flex justify-around align-center">
       <div className="RangeSliderContainer self-start">
-        <RangeSlider
+        {/* <RangeSlider
           type={"speed"}
           minimum={10}
           maximum={100}
@@ -25,11 +25,11 @@ function Header(props: ChangeInput) {
           step={10}
           value={props.speed}
           setVal={props.setSpeed}
-        ></RangeSlider>
+        ></RangeSlider> */}
         <RangeSlider
           type={"size"}
           minimum={10}
-          maximum={100}
+          maximum={80}
           initialvalue={60}
           step={10}
           value={props.sizeValue}
@@ -39,13 +39,6 @@ function Header(props: ChangeInput) {
       <div className="SortButtonContainer flex gap-5 self-end">
         <SortBtn
           sortingAlgo={"Bubble"}
-          arr={props.arr}
-          towers={props.towers}
-          sort={props.sort}
-          setAlgo={props.setAlgo}
-        ></SortBtn>
-        <SortBtn
-          sortingAlgo={"Heap"}
           arr={props.arr}
           towers={props.towers}
           sort={props.sort}

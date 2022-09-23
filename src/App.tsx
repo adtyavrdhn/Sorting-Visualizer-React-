@@ -7,15 +7,14 @@ import bubbleSort from "./algorithms/bubbleSort";
 import quickSort from "./algorithms/quickSort";
 import selectionSort from "./algorithms/SelectionSort";
 import insertionSort from "./algorithms/insertionSort";
-// import heapSort from "./algorithms/heapSort";
 import MergeSort from "./algorithms/mergeSort";
 
-// let arr: number[] = [];
+let arr: number[] = [];
 
 function App(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
   const [speed, setSpeed] = useState(20);
-  const [arr, setArr] = useState([0]);
+  // const [arr, setArr] = useState([0]);
   const [algo, setAlgo] = useState("");
   const [sorted, setSorted] = useState(false);
   let [towers, setTowers] = useState<JSX.Element[]>([]);
@@ -30,15 +29,6 @@ function App(props: any) {
     ));
     setTowers(temptowers);
   }
-
-  // useEffect(() => {
-  //   if (speed !== undefined && sizeValue !== undefined && algo !== undefined) {
-  //     if (sorted !== true) {
-  //       setTimeout(() => setSortedArray(sortingAlgorithm(input)), speed);
-  //     }
-  //   }
-  //   console.log(sizeValue);
-  // }, [sizeValue, sorted, speed, algo]);
 
   function sort(event: any) {
     let algorithm: string = event.target.innerHTML;
@@ -59,9 +49,6 @@ function App(props: any) {
         insertionSort(arr, arr.length, initTowers),
           setSorted((sorted) => !sorted);
         break;
-      // case "Heap Sort":
-      //   heapSort(arr, initTowers);
-      //   break;
       case "Merge Sort":
         MergeSort(arr, initTowers), setSorted((sorted) => !sorted);
         break;
@@ -69,7 +56,8 @@ function App(props: any) {
   }
 
   function initarr() {
-    setArr([]);
+    // setArr([]);
+    arr = [];
     while (arr.length < sizeValue) {
       var r = Math.floor(Math.random() * 100) + 50;
       if (arr.indexOf(r) === -1) arr.push(r);
@@ -94,7 +82,12 @@ function App(props: any) {
     <div className="App">
       <h1 className="text-center font-semibold text-4xl">Sorting Visualizer</h1>
       <Header {...Headerprops} />
-      <Towers towers={towers}></Towers>
+      <div className="towers-grid auto-cols-auto p-35px">
+        <Towers towers={towers}></Towers>
+        {/* <Towers towers={towers}></Towers>
+        <Towers towers={towers}></Towers>
+        <Towers towers={towers}></Towers> */}
+      </div>
     </div>
   );
 }

@@ -20,4 +20,6 @@ export default async function selectionSort(
     await delay(35);
     initTowers();
   }
+
+  return arr;
 }
