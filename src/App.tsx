@@ -10,11 +10,10 @@ import insertionSort from "./algorithms/insertionSort";
 // import heapSort from "./algorithms/heapSort";
 import MergeSort from "./algorithms/mergeSort";
 
-let arr: number[] = [];
-
 function App(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
   const [speed, setSpeed] = useState(20);
+  let [arr, setArr] = useState([0]);
   let [towers, setTowers] = useState<JSX.Element[]>([]);
 
   function initTowers() {
@@ -54,10 +53,12 @@ function App(props: any) {
   }
 
   function initarr() {
-    while (arr.length < sizeValue) {
+    let array: number[] = [];
+    while (array.length < sizeValue) {
       var r = Math.floor(Math.random() * 100) + 50;
-      if (arr.indexOf(r) === -1) arr.push(r);
+      if (array.indexOf(r) === -1) array.push(r);
     }
+    setArr(array);
     initTowers();
   }
   useEffect(() => {
