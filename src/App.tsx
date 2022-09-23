@@ -10,11 +10,12 @@ import insertionSort from "./algorithms/insertionSort";
 // import heapSort from "./algorithms/heapSort";
 import MergeSort from "./algorithms/mergeSort";
 
-let arr: number[] = [];
+// let arr: number[] = [];
 
 function App(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
   const [speed, setSpeed] = useState(20);
+  const [arr, setArr] = useState([0]);
   const [algo, setAlgo] = useState("");
   const [sorted, setSorted] = useState(false);
   let [towers, setTowers] = useState<JSX.Element[]>([]);
@@ -36,7 +37,8 @@ function App(props: any) {
   //       setTimeout(() => setSortedArray(sortingAlgorithm(input)), speed);
   //     }
   //   }
-  // }, [sizeValue, sorted, speed]);
+  //   console.log(sizeValue);
+  // }, [sizeValue, sorted, speed, algo]);
 
   function sort(event: any) {
     let algorithm: string = event.target.innerHTML;
@@ -67,7 +69,7 @@ function App(props: any) {
   }
 
   function initarr() {
-    arr = [];
+    setArr([]);
     while (arr.length < sizeValue) {
       var r = Math.floor(Math.random() * 100) + 50;
       if (arr.indexOf(r) === -1) arr.push(r);
@@ -86,6 +88,7 @@ function App(props: any) {
     arr: arr,
     towers: towers,
     sort: sort,
+    setAlgo: setAlgo,
   };
   return (
     <div className="App">

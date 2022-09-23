@@ -11,6 +11,7 @@ interface ChangeInput {
   arr: number[];
   towers: JSX.Element[];
   sort: Function;
+  setAlgo: Function;
 }
 function Header(props: ChangeInput) {
   return (
@@ -41,36 +42,42 @@ function Header(props: ChangeInput) {
           arr={props.arr}
           towers={props.towers}
           sort={props.sort}
+          setAlgo={props.setAlgo}
         ></SortBtn>
         <SortBtn
           sortingAlgo={"Heap"}
           arr={props.arr}
           towers={props.towers}
           sort={props.sort}
+          setAlgo={props.setAlgo}
         ></SortBtn>
         <SortBtn
           sortingAlgo={"Merge"}
           arr={props.arr}
           towers={props.towers}
           sort={props.sort}
+          setAlgo={props.setAlgo}
         ></SortBtn>
         <SortBtn
           sortingAlgo={"Insertion"}
           arr={props.arr}
           towers={props.towers}
           sort={props.sort}
+          setAlgo={props.setAlgo}
         ></SortBtn>
         <SortBtn
           sortingAlgo={"Selection"}
           arr={props.arr}
           towers={props.towers}
           sort={props.sort}
+          setAlgo={props.setAlgo}
         ></SortBtn>
         <SortBtn
           sortingAlgo={"Quick"}
           arr={props.arr}
           towers={props.towers}
           sort={props.sort}
+          setAlgo={props.setAlgo}
         ></SortBtn>
       </div>
     </div>
