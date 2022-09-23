@@ -10,7 +10,6 @@ interface ChangeInput {
   setSpeed: Function;
   arr: number[];
   towers: JSX.Element[];
-  HandleChange: Function;
 }
 function Header(props: ChangeInput) {
   return (
@@ -23,7 +22,7 @@ function Header(props: ChangeInput) {
           initialvalue={60}
           step={10}
           value={props.speed}
-          setSizeValue={props.setSpeed}
+          setVal={props.setSpeed}
           disabled={true}
         ></RangeSlider>
         <RangeSlider
@@ -33,7 +32,7 @@ function Header(props: ChangeInput) {
           initialvalue={60}
           step={10}
           value={props.sizeValue}
-          setSizeValue={props.setSizeValue}
+          setVal={props.setSizeValue}
         ></RangeSlider>
       </div>
       <div className="SortButtonContainer flex gap-5 self-end">
@@ -41,31 +40,18 @@ function Header(props: ChangeInput) {
           sort={"Bubble"}
           arr={props.arr}
           towers={props.towers}
-          HandleChange={props.HandleChange}
         ></SortBtn>
-        <SortBtn
-          sort={"Heap"}
-          arr={props.arr}
-          towers={props.towers}
-          HandleChange={props.HandleChange}
-        ></SortBtn>
-        <SortBtn
-          sort={"Merge"}
-          arr={props.arr}
-          towers={props.towers}
-          HandleChange={props.HandleChange}
-        ></SortBtn>
+        <SortBtn sort={"Heap"} arr={props.arr} towers={props.towers}></SortBtn>
+        <SortBtn sort={"Merge"} arr={props.arr} towers={props.towers}></SortBtn>
         <SortBtn
           sort={"Insertion"}
           arr={props.arr}
           towers={props.towers}
-          HandleChange={props.HandleChange}
         ></SortBtn>
         <SortBtn
           sort={"Selection"}
           arr={props.arr}
           towers={props.towers}
-          HandleChange={props.HandleChange}
         ></SortBtn>
       </div>
     </div>

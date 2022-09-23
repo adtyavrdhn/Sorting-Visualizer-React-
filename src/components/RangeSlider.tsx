@@ -15,8 +15,9 @@ function RangeSlider(props: any) {
         name={props.type}
         id={props.type + "-slider"}
         step={props.step}
+        value={props.value}
         disabled={props.disabled}
-        onChange={(event: any) => props.setSizeValue(event.target.value)}
+        onChange={(event: any) => props.setVal(event.target.value)}
       />
     </div>
   );
