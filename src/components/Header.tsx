@@ -1,7 +1,6 @@
 import React from "react";
 import RangeSlider from "./RangeSlider";
 import SortBtn from "./SortBtn";
-import logo from "./logo.svg";
 
 interface ChangeInput {
   sizeValue: number;

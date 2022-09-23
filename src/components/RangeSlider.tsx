@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 
 function RangeSlider(props: any) {
   return (
