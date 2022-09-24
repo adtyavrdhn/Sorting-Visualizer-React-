@@ -7,7 +7,10 @@ interface SortButtonProps {
 
 function SortButton(props: SortButtonProps) {
   return (
-    <button onClick={() => props.sort(`${props.sortingAlgo} Sort`)}>
+    <button
+      className="shadow-md rounded-lg p-3 bg-purple-50"
+      onClick={() => props.sort(`${props.sortingAlgo} Sort`)}
+    >
       {props.sortingAlgo} Sort
     </button>
   );

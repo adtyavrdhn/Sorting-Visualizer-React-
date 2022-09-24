@@ -9,7 +9,7 @@ interface ChangeInput {
 }
 function Header(props: ChangeInput) {
   return (
-    <div className="flex justify-around align-center">
+    <div className="flex justify-around align-center pb-15px">
       <div className="self-start">
         {/* <RangeSlider
           type={"speed"}
@@ -30,7 +30,7 @@ function Header(props: ChangeInput) {
           setValue={props.setSizeValue}
         ></RangeSlider>
       </div>
-      <div className="flex gap-5 self-end">
+      <div className="flex gap-5 self-end mt-3">
         <SortBtn sortingAlgo={"Bubble"} sort={props.sort}></SortBtn>
         <SortBtn sortingAlgo={"Merge"} sort={props.sort}></SortBtn>
         <SortBtn sortingAlgo={"Insertion"} sort={props.sort}></SortBtn>

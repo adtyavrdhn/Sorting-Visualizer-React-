@@ -50,12 +50,33 @@ function App(props: any) {
     }
   }
 
+<<<<<<< Updated upstream
   function initarr() {
     arr = [];
     // let array:number[] = [];
     while (arr.length < sizeValue) {
       var r = Math.floor(Math.random() * 100) + 50;
       if (arr.indexOf(r) === -1) arr.push(r);
+=======
+  useEffect(() => {
+    const temptowers: JSX.Element[] = arr.map((n: number, index: number) => (
+      <div
+        className={
+          "bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500"
+        }
+        key={index}
+        style={{ height: `${n / 7}rem`, width: `0.7%` }}
+      ></div>
+    ));
+    setTowers(temptowers);
+  }, [arr]);
+
+  useEffect(() => {
+    const newArr: number[] = [];
+    while (newArr.length < sizeValue) {
+      const r = Math.floor(Math.random() * 100) + 50;
+      if (newArr.indexOf(r) === -1) newArr.push(r);
+>>>>>>> Stashed changes
     }
     // setArr(array);
     initTowers(arr);
@@ -73,8 +94,8 @@ function App(props: any) {
     <div className="App">
       <h1 className="text-center font-semibold text-4xl">Sorting Visualizer</h1>
       <Header {...Headerprops} />
-      <div className="w-full auto-cols-auto p-35px">
-        <div className="flex gap-1.5 mt-1 justify-center">{towers}</div>
+      <div className="w-full">
+        <div className="flex mt-3 gap-1.5 justify-center">{towers}</div>
       </div>
     </div>
   );
