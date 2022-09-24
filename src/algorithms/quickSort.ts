@@ -19,7 +19,7 @@ async function partition(
     }
     if (i <= j) {
       swap(items, i, j); //sawpping two elements
-      initTowers();
+      initTowers(items);
       i++;
       j--;
     }
@@ -28,12 +28,14 @@ async function partition(
 }
 
 export default async function quickSort(
-  items: number[],
+  arr: number[],
   left: number,
   right: number,
   initTowers: Function
 ) {
   var index;
+
+  let items: number[] = arr;
   if (items.length > 1) {
     await delay(5);
     index = await partition(items, left, right, initTowers); //index returned from partition

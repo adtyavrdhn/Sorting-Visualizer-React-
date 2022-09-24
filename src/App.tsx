@@ -19,7 +19,7 @@ function App(props: any) {
   const [sorted, setSorted] = useState(false);
   let [towers, setTowers] = useState<JSX.Element[]>([]);
 
-  function initTowers() {
+  function initTowers(arr: number[]) {
     let temptowers: JSX.Element[] = arr.map((n: number, index: number) => (
       <div
         className={"bg-black tower"}
@@ -53,13 +53,12 @@ function App(props: any) {
   }
 
   function initarr() {
-    // setArr([]);
     arr = [];
     while (arr.length < sizeValue) {
       var r = Math.floor(Math.random() * 100) + 50;
       if (arr.indexOf(r) === -1) arr.push(r);
     }
-    initTowers();
+    initTowers(arr);
   }
   useEffect(() => {
     initarr();

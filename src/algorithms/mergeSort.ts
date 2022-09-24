@@ -1,8 +1,9 @@
 import { isInt16Array } from "util/types";
 import { delay } from "./utility";
 
-export default async function mergeSort(list: number[], initTowers: Function) {
+export default async function mergeSort(arr: number[], initTowers: Function) {
   console.log("Merge Sort");
+  let list: number[] = arr;
   mergseSortRange(list, 0, list.length - 1, initTowers);
 
   return list;
@@ -41,23 +42,23 @@ async function merge(
       list[i++] = v1;
       ++i1;
       await delay(25);
-      initTowers();
+      initTowers(list);
     } else {
       list[i++] = v2;
       ++i2;
       await delay(25);
-      initTowers();
+      initTowers(list);
     }
   }
 
   while (i1 <= m) {
     list[i++] = res[i1++ - l];
     await delay(25);
-    initTowers();
+    initTowers(list);
   }
   while (i2 <= m) {
     list[i++] = res[i2++ - l];
     await delay(25);
-    initTowers();
+    initTowers(list);
   }
 }

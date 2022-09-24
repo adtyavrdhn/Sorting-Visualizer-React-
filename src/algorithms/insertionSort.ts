@@ -1,11 +1,13 @@
 import { delay } from "./utility";
 
 export default async function insertionSort(
-  arr: number[],
+  array: number[],
   n: number,
   initTowers: Function
 ) {
   console.log("Insertion Sort");
+
+  let arr: number[] = array;
   let i, key, j;
   for (i = 1; i < n; i++) {
     key = arr[i];
@@ -16,7 +18,7 @@ export default async function insertionSort(
       j = j - 1;
     }
     arr[j + 1] = key;
-    initTowers();
+    initTowers(arr);
     await delay(35);
   }
 

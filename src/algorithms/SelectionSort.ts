@@ -1,12 +1,14 @@
 import { delay, swap } from "./utility";
 
 export default async function selectionSort(
-  arr: number[],
+  array: number[],
   n: number,
   initTowers: Function
 ) {
   console.log("Selection Sort");
   var i, j, min_idx;
+
+  let arr: number[] = array;
 
   // One by one move boundary of unsorted subarray
   for (i = 0; i < n - 1; i++) {
@@ -20,7 +22,7 @@ export default async function selectionSort(
     // Swap the found minimum element with the first element
     swap(arr, min_idx, i);
     await delay(35);
-    initTowers();
+    initTowers(arr);
   }
 
   return arr;
