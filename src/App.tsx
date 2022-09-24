@@ -74,10 +74,7 @@ function App(props: any) {
       <h1 className="text-center font-semibold text-4xl">Sorting Visualizer</h1>
       <Header {...Headerprops} />
       <div className="w-full auto-cols-auto p-35px">
-        <Towers towers={towers}></Towers>
-        {/* <Towers towers={towers}></Towers>
-        <Towers towers={towers}></Towers>
-        <Towers towers={towers}></Towers> */}
+        <div className="flex gap-1.5 mt-1 justify-center">{towers}</div>
       </div>
     </div>
   );
