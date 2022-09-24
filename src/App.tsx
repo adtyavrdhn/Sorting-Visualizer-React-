@@ -13,26 +13,24 @@ let arr: number[] = [];
 
 function App(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
-  const [speed, setSpeed] = useState(20);
+  // const [speed, setSpeed] = useState(20);
   // const [arr, setArr] = useState([0]);
-  const [algo, setAlgo] = useState("");
-  const [sorted, setSorted] = useState(false);
+  // const [algo, setAlgo] = useState("");
+  // const [sorted, setSorted] = useState(false);
   let [towers, setTowers] = useState<JSX.Element[]>([]);
 
   function initTowers(arr: number[]) {
     let temptowers: JSX.Element[] = arr.map((n: number, index: number) => (
       <div
-        className={"bg-black tower"}
+        className={"bg-black"}
         key={index}
-        style={{ height: `${n / 7}rem` }}
+        style={{ height: `${n / 7}rem`, width: `.8%` }}
       ></div>
     ));
     setTowers(temptowers);
   }
 
-  function sort(event: any) {
-    let algorithm: string = event.target.innerHTML;
-
+  function sort(algorithm: string) {
     switch (algorithm) {
       case "Bubble Sort":
         bubbleSort(arr, initTowers);
@@ -54,10 +52,12 @@ function App(props: any) {
 
   function initarr() {
     arr = [];
+    // let array:number[] = [];
     while (arr.length < sizeValue) {
       var r = Math.floor(Math.random() * 100) + 50;
       if (arr.indexOf(r) === -1) arr.push(r);
     }
+    // setArr(array);
     initTowers(arr);
   }
   useEffect(() => {
@@ -67,18 +67,13 @@ function App(props: any) {
   const Headerprops = {
     sizeValue: sizeValue,
     setSizeValue: setSizeValue,
-    speed: speed,
-    setSpeed: setSpeed,
-    arr: arr,
-    towers: towers,
     sort: sort,
-    setAlgo: setAlgo,
   };
   return (
     <div className="App">
       <h1 className="text-center font-semibold text-4xl">Sorting Visualizer</h1>
       <Header {...Headerprops} />
-      <div className="towers-grid auto-cols-auto p-35px">
+      <div className="w-full auto-cols-auto p-35px">
         <Towers towers={towers}></Towers>
         {/* <Towers towers={towers}></Towers>
         <Towers towers={towers}></Towers>

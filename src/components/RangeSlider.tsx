@@ -1,22 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
-function RangeSlider(props: any) {
+function RangeSlider({ name, max, min, step, value, disabled, setValue }: any) {
   return (
-    <div className="RangeSlider flex justify-center">
+    <div className="flex justify-center">
       <label htmlFor="size" className="size mr-2 mt-0.2">
-        {props.type}
+        {name}
       </label>
       <input
-        className={props.type + "-range"}
-        min={props.minimum}
-        max={props.maximum}
+        min={min}
+        max={max}
         type="range"
-        name={props.type}
-        id={props.type + "-slider"}
-        step={props.step}
-        value={props.value}
-        disabled={props.disabled}
-        onChange={(event: any) => props.setVal(event.target.value)}
+        name={name}
+        step={step}
+        value={value}
+        disabled={disabled}
+        onChange={(event: any) => setValue(event.target.value)}
       />
     </div>
   );

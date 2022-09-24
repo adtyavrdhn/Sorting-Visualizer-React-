@@ -1,9 +1,8 @@
-import { isInt16Array } from "util/types";
 import { delay } from "./utility";
 
 export default async function mergeSort(arr: number[], initTowers: Function) {
   console.log("Merge Sort");
-  let list: number[] = arr;
+  const list: number[] = arr;
   mergseSortRange(list, 0, list.length - 1, initTowers);
   arr = [...list];
   return arr;
@@ -17,7 +16,7 @@ async function mergseSortRange(
 ) {
   if (l >= r) return;
 
-  let m = Math.floor(l + (r - l) / 2);
+  const m = Math.floor(l + (r - l) / 2);
   await mergseSortRange(list, l, m, initTowers);
   await mergseSortRange(list, m + 1, r, initTowers);
   await merge(list, l, m, r, initTowers);
@@ -30,7 +29,7 @@ async function merge(
   r: number,
   initTowers: Function
 ) {
-  let res = list.slice(l, r + 1);
+  const res = list.slice(l, r + 1);
   let i1 = l;
   let i2 = m + 1;
   let i = l;
