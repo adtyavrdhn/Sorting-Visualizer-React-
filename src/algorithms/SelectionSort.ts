@@ -6,9 +6,9 @@ export default async function selectionSort(
   setArr: Function
 ) {
   console.log("Selection Sort");
-  var i, j, min_idx;
+  let i, j, min_idx;
 
-  let arr: number[] = array;
+  const arr: number[] = array;
   for (i = 0; i < n - 1; i++) {
     min_idx = i;
     for (j = i + 1; j < n; j++) {

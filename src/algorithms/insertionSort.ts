@@ -7,7 +7,7 @@ export default async function insertionSort(
 ) {
   console.log("Insertion Sort");
 
-  let arr: number[] = array;
+  const arr: number[] = array;
   let i, key, j;
   for (i = 1; i < n; i++) {
     key = arr[i];
