@@ -4,7 +4,7 @@ async function partition(
   items: number[],
   left: number,
   right: number,
-  initTowers: Function
+  setArr: Function
 ) {
   console.log("Quick Sort");
   var pivot = items[Math.floor((right + left) / 2)], //middle element
@@ -19,7 +19,7 @@ async function partition(
     }
     if (i <= j) {
       swap(items, i, j); //sawpping two elements
-      initTowers(items);
+      setArr([...items]);
       i++;
       j--;
     }
@@ -31,23 +31,23 @@ export default async function quickSort(
   arr: number[],
   left: number,
   right: number,
-  initTowers: Function
+  setArr: Function
 ) {
   var index;
 
   let items: number[] = arr;
   if (items.length > 1) {
     await delay(5);
-    index = await partition(items, left, right, initTowers); //index returned from partition
+    index = await partition(items, left, right, setArr); //index returned from partition
     if (left < index - 1) {
       //more elements on the left side of the pivot
       // await delay(5);
-      await quickSort(items, left, index - 1, initTowers);
+      await quickSort(items, left, index - 1, setArr);
     }
     if (index < right) {
       //more elements on the right side of the pivot
       // await delay(5);
-      await quickSort(items, index, right, initTowers);
+      await quickSort(items, index, right, setArr);
     }
   }
 

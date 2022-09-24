@@ -37,7 +37,7 @@ function App() {
     const temptowers: JSX.Element[] = arr.map((n: number, index: number) => (
       <div
         className={
-          "bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500"
+          "bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-md"
         }
         key={index}
         style={{ height: `${n / 7}rem`, width: `0.7%` }}
@@ -61,7 +61,7 @@ function App() {
     sort: sort,
   };
   return (
-    <div className="App">
+    <div className="w-full h-screen bg-slate-100">
       <h1 className="text-center font-semibold text-4xl">Sorting Visualizer</h1>
       <Header {...Headerprops} />
       <div className="w-full">

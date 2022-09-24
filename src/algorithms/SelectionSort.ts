@@ -3,7 +3,7 @@ import { delay, swap } from "./utility";
 export default async function selectionSort(
   array: number[],
   n: number,
-  initTowers: Function
+  setArr: Function
 ) {
   console.log("Selection Sort");
   var i, j, min_idx;
@@ -22,7 +22,7 @@ export default async function selectionSort(
     // Swap the found minimum element with the first element
     swap(arr, min_idx, i);
     await delay(35);
-    initTowers(arr);
+    setArr([...arr]);
   }
 
   array = [...arr];
