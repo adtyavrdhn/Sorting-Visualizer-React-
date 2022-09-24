@@ -2,62 +2,37 @@ import React, { useState, useEffect } from "react";
 import "tailwindcss/tailwind.css";
 import "./App.css";
 import Header from "./components/Header";
-import Towers from "./components/Towers";
 import bubbleSort from "./algorithms/bubbleSort";
 import quickSort from "./algorithms/quickSort";
 import selectionSort from "./algorithms/SelectionSort";
 import insertionSort from "./algorithms/insertionSort";
 import MergeSort from "./algorithms/mergeSort";
 
-let arr: number[] = [];
-
-function App(props: any) {
+function App() {
   const [sizeValue, setSizeValue] = useState(20);
-  // const [speed, setSpeed] = useState(20);
-  // const [arr, setArr] = useState([0]);
-  // const [algo, setAlgo] = useState("");
-  // const [sorted, setSorted] = useState(false);
-  let [towers, setTowers] = useState<JSX.Element[]>([]);
-
-  function initTowers(arr: number[]) {
-    let temptowers: JSX.Element[] = arr.map((n: number, index: number) => (
-      <div
-        className={"bg-black"}
-        key={index}
-        style={{ height: `${n / 7}rem`, width: `.8%` }}
-      ></div>
-    ));
-    setTowers(temptowers);
-  }
+  const [arr, setArr] = useState([0]);
+  const [towers, setTowers] = useState<JSX.Element[]>([]);
 
   function sort(algorithm: string) {
     switch (algorithm) {
       case "Bubble Sort":
-        bubbleSort(arr, initTowers);
+        bubbleSort(arr, setArr);
         break;
       case "Quick Sort":
-        quickSort(arr, 0, arr.length - 1, initTowers);
+        quickSort(arr, 0, arr.length - 1, setArr);
         break;
       case "Selection Sort":
-        selectionSort(arr, arr.length, initTowers);
+        selectionSort(arr, arr.length, setArr);
         break;
       case "Insertion Sort":
-        insertionSort(arr, arr.length, initTowers);
+        insertionSort(arr, arr.length, setArr);
         break;
       case "Merge Sort":
-        MergeSort(arr, initTowers);
+        MergeSort(arr, setArr);
         break;
     }
   }
 
-<<<<<<< Updated upstream
-  function initarr() {
-    arr = [];
-    // let array:number[] = [];
-    while (arr.length < sizeValue) {
-      var r = Math.floor(Math.random() * 100) + 50;
-      if (arr.indexOf(r) === -1) arr.push(r);
-=======
   useEffect(() => {
     const temptowers: JSX.Element[] = arr.map((n: number, index: number) => (
       <div
@@ -76,13 +51,8 @@ function App(props: any) {
     while (newArr.length < sizeValue) {
       const r = Math.floor(Math.random() * 100) + 50;
       if (newArr.indexOf(r) === -1) newArr.push(r);
->>>>>>> Stashed changes
     }
-    // setArr(array);
-    initTowers(arr);
-  }
-  useEffect(() => {
-    initarr();
+    setArr(newArr);
   }, [sizeValue]);
 
   const Headerprops = {
