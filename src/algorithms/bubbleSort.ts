@@ -17,5 +17,6 @@ export default async function bubbleSort(arr: number[], initTowers: Function) {
     }
     await delay(5);
   }
+  arr = [...array];
   return arr;
 }

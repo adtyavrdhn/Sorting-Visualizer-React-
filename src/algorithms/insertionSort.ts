@@ -21,6 +21,6 @@ export default async function insertionSort(
     initTowers(arr);
     await delay(35);
   }
-
-  return arr;
+  array = [...arr];
+  return array;
 }

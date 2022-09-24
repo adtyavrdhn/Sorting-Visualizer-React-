@@ -25,5 +25,6 @@ export default async function selectionSort(
     initTowers(arr);
   }
 
-  return arr;
+  array = [...arr];
+  return array;
 }

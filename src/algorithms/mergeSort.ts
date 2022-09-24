@@ -5,8 +5,8 @@ export default async function mergeSort(arr: number[], initTowers: Function) {
   console.log("Merge Sort");
   let list: number[] = arr;
   mergseSortRange(list, 0, list.length - 1, initTowers);
-
-  return list;
+  arr = [...list];
+  return arr;
 }
 
 async function mergseSortRange(

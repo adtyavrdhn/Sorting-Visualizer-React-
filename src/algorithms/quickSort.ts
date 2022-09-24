@@ -50,5 +50,7 @@ export default async function quickSort(
       await quickSort(items, index, right, initTowers);
     }
   }
-  return items;
+
+  arr = [...items];
+  return arr;
 }
