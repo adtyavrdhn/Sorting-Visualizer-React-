@@ -76,7 +76,7 @@ function App() {
       if (newArr.indexOf(r) === -1) newArr.push(r);
     }
     setArr(newArr);
-    setSarr([...arr]);
+    setSarr([...newArr]);
   }, [sizeValue]);
 
   const Headerprops = {
