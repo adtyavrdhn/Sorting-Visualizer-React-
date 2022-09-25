@@ -8,10 +8,12 @@ import selectionSort from "./algorithms/SelectionSort";
 import insertionSort from "./algorithms/insertionSort";
 import MergeSort from "./algorithms/mergeSort";
 import Towers from "./components/Towers";
+import { delay } from "./algorithms/utility";
 
 function App() {
   const [sizeValue, setSizeValue] = useState(20);
   const [arr, setArr] = useState([0]);
+  const [sarr, setSarr] = useState([0]);
   const [towers, setTowers] = useState<JSX.Element[]>([]);
 
   function sort(algorithm: string) {
@@ -34,6 +36,26 @@ function App() {
     }
   }
 
+  async function allSort() {
+    await bubbleSort(arr, setArr);
+
+    setArr([...sarr]);
+    await delay(45);
+    await quickSort([...sarr], 0, arr.length - 1, setArr);
+
+    setArr([...sarr]);
+    await delay(45);
+    await selectionSort([...sarr], arr.length, setArr);
+
+    setArr([...sarr]);
+    await delay(45);
+    await insertionSort([...sarr], arr.length, setArr);
+    setArr([...sarr]);
+
+    await delay(45);
+    await MergeSort([...sarr], setArr);
+  }
+
   useEffect(() => {
     const temptowers: JSX.Element[] = arr.map((n: number, index: number) => (
       <div
@@ -54,20 +76,22 @@ function App() {
       if (newArr.indexOf(r) === -1) newArr.push(r);
     }
     setArr(newArr);
+    setSarr([...arr]);
   }, [sizeValue]);
 
   const Headerprops = {
     sizeValue: sizeValue,
     setSizeValue: setSizeValue,
     sort: sort,
+    allSort: allSort,
   };
   return (
-    <div className="w-full h-screen">
+    <div className="w-full">
       <h1 className="text-center font-semibold text-4xl">Sorting Visualizer</h1>
       <Header {...Headerprops} />
-      <div className="w-full">
-        {/* <div className="flex mt-3 gap-1.5 justify-center">{towers}</div> */}
-        <Towers arr={[...arr]} sort={sort}></Towers>
+      <div>
+        <div className="flex mt-3 gap-1.5 justify-center">{towers}</div>
+        {/* <Towers arr={[...arr]} sort={sort}></Towers> */}
       </div>
     </div>
   );

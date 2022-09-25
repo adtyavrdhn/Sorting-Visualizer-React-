@@ -12,11 +12,11 @@ export default async function selectionSort(
   for (i = 0; i < n - 1; i++) {
     min_idx = i;
     for (j = i + 1; j < n; j++) {
-      await delay(5);
+      await delay(15);
       if (arr[j] < arr[min_idx]) min_idx = j;
     }
     swap(arr, min_idx, i);
-    await delay(35);
+    await delay(15);
     setArr([...arr]);
   }
 

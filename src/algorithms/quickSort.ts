@@ -19,6 +19,7 @@ async function partition(
     }
     if (i <= j) {
       swap(items, i, j);
+      await delay(15);
       setArr([...items]);
       i++;
       j--;
@@ -37,7 +38,7 @@ export default async function quickSort(
 
   const items: number[] = arr;
   if (items.length > 1) {
-    await delay(5);
+    await delay(15);
     index = await partition(items, left, right, setArr);
     if (left < index - 1) {
       await quickSort(items, left, index - 1, setArr);

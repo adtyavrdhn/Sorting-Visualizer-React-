@@ -40,24 +40,24 @@ async function merge(
     if (v1 < v2) {
       list[i++] = v1;
       ++i1;
-      await delay(25);
+      await delay(15);
       setArr([...list]);
     } else {
       list[i++] = v2;
       ++i2;
-      await delay(25);
+      await delay(15);
       setArr([...list]);
     }
   }
 
   while (i1 <= m) {
     list[i++] = res[i1++ - l];
-    await delay(25);
+    await delay(15);
     setArr([...list]);
   }
   while (i2 <= m) {
     list[i++] = res[i2++ - l];
-    await delay(25);
+    await delay(15);
     setArr([...list]);
   }
 }

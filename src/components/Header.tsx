@@ -6,6 +6,7 @@ interface ChangeInput {
   sizeValue: number;
   setSizeValue: Function;
   sort: Function;
+  allSort: Function;
 }
 function Header(props: ChangeInput) {
   return (
@@ -36,6 +37,12 @@ function Header(props: ChangeInput) {
         <SortBtn sortingAlgo={"Insertion"} sort={props.sort}></SortBtn>
         <SortBtn sortingAlgo={"Selection"} sort={props.sort}></SortBtn>
         <SortBtn sortingAlgo={"Quick"} sort={props.sort}></SortBtn>
+        <button
+          className="shadow-md rounded-lg p-3 bg-purple-50"
+          onClick={() => props.allSort()}
+        >
+          All
+        </button>
       </div>
     </div>
   );
