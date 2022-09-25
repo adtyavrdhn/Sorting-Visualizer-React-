@@ -7,6 +7,7 @@ import quickSort from "./algorithms/quickSort";
 import selectionSort from "./algorithms/SelectionSort";
 import insertionSort from "./algorithms/insertionSort";
 import MergeSort from "./algorithms/mergeSort";
+import Towers from "./components/Towers";
 
 function App() {
   const [sizeValue, setSizeValue] = useState(20);
@@ -61,11 +62,12 @@ function App() {
     sort: sort,
   };
   return (
-    <div className="w-full h-screen bg-slate-100">
+    <div className="w-full h-screen">
       <h1 className="text-center font-semibold text-4xl">Sorting Visualizer</h1>
       <Header {...Headerprops} />
       <div className="w-full">
-        <div className="flex mt-3 gap-1.5 justify-center">{towers}</div>
+        {/* <div className="flex mt-3 gap-1.5 justify-center">{towers}</div> */}
+        <Towers arr={[...arr]} sort={sort}></Towers>
       </div>
     </div>
   );
