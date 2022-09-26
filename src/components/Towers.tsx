@@ -15,6 +15,7 @@ interface divs {
 function Towers(props: divs) {
   const [towers, setTowers] = useState<JSX.Element[]>([]);
   const [narr, setnarr] = useState([0]);
+  const [isSorted, setisSorted] = useState(false);
 
   function changeArr(arr: number[]) {
     const newArr = produce(arr, (draft) => {
@@ -63,7 +64,7 @@ function Towers(props: divs) {
   return (
     <div className="grid lg:gap-3 mt-1">
       <SortBtn sortingAlgo={props.algo} sort={sort}></SortBtn>
-      <div className="flex gap-1.5 mt-1 justify-center">{towers}</div>
+      <div className="flex gap-0.5 mt-1 justify-center">{towers}</div>
     </div>
   );
 }

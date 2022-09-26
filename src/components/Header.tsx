@@ -22,7 +22,7 @@ function Header(props: ChangeInput) {
         <RangeSlider
           name={"Size"}
           min={10}
-          max={50}
+          max={80}
           initialvalue={30}
           step={10}
           value={props.sizeValue}
