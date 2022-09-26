@@ -8,7 +8,6 @@ import selectionSort from "./algorithms/SelectionSort";
 import insertionSort from "./algorithms/insertionSort";
 import MergeSort from "./algorithms/mergeSort";
 import Towers from "./components/Towers";
-import produce from "immer";
 import { delay } from "./algorithms/utility";
 
 function App() {
@@ -16,25 +15,6 @@ function App() {
   const [arr, setArr] = useState([0]);
   const [sarr, setSarr] = useState([0]);
 
-  // function sort(algorithm: string) {
-  //   switch (algorithm) {
-  //     case "Bubble Sort":
-  //       bubbleSort(arr, setArr);
-  //       break;
-  //     case "Quick Sort":
-  //       quickSort(arr, 0, arr.length - 1, setArr);
-  //       break;
-  //     case "Selection Sort":
-  //       selectionSort(arr, arr.length, setArr);
-  //       break;
-  //     case "Insertion Sort":
-  //       insertionSort(arr, arr.length, setArr);
-  //       break;
-  //     case "Merge Sort":
-  //       MergeSort(arr, setArr);
-  //       break;
-  //   }
-  // }
   // sorting using all the sorting algorithms one by one
   async function allSort() {
     await bubbleSort(arr, setArr);
@@ -75,7 +55,7 @@ function App() {
     <div className="w-full">
       <h1 className="text-center font-semibold text-4xl">Sorting Visualizer</h1>
       <Header {...Headerprops} />
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-4">
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-4 sm:grid-cols-1">
         <Towers arr={[...arr]} algo={"Bubble Sort"}></Towers>
         <Towers arr={[...arr]} algo={"Selection Sort"}></Towers>
         <Towers arr={[...arr]} algo={"Merge Sort"}></Towers>

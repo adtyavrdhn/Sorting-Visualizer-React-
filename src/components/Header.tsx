@@ -1,6 +1,5 @@
 import React from "react";
 import RangeSlider from "./RangeSlider";
-import SortBtn from "./SortButton";
 
 interface ChangeInput {
   sizeValue: number;
@@ -21,10 +20,10 @@ function Header(props: ChangeInput) {
           setVal={props.setSpeed}
         ></RangeSlider> */}
         <RangeSlider
-          name={"size"}
+          name={"Size"}
           min={10}
-          max={80}
-          initialvalue={60}
+          max={50}
+          initialvalue={30}
           step={10}
           value={props.sizeValue}
           setValue={props.setSizeValue}

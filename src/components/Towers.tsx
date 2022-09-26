@@ -54,14 +54,14 @@ function Towers(props: divs) {
           "bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-md"
         }
         key={index}
-        style={{ height: `${n / 7}rem`, width: `0.7%` }}
+        style={{ height: `${n / 10}rem`, width: `0.7%` }}
       ></div>
     ));
     setTowers(temptowers);
   }, [narr]);
 
   return (
-    <div>
+    <div className="grid lg:gap-3 mt-1">
       <SortBtn sortingAlgo={props.algo} sort={sort}></SortBtn>
       <div className="flex gap-1.5 mt-1 justify-center">{towers}</div>
     </div>
