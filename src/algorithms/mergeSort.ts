@@ -7,7 +7,7 @@ export default async function mergeSort(
 ) {
   console.log("Merge Sort");
   const list: number[] = arr;
-  mergseSortRange(list, 0, list.length - 1, setArr, speed);
+  await mergseSortRange(list, 0, list.length - 1, setArr, speed);
   arr = [...list];
   return arr;
 }

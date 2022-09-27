@@ -35,6 +35,7 @@ function Towers(props: divs) {
 
   useEffect(() => {
     changeArr(props.arr);
+    setTime("");
   }, [props.arr]);
 
   async function sort(algorithm: string) {
