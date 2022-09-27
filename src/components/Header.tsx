@@ -5,19 +5,22 @@ interface ChangeInput {
   sizeValue: number;
   setSizeValue: Function;
   allSort: Function;
+  speed: number;
+  setSpeed: Function;
 }
 function Header(props: ChangeInput) {
   return (
     <div className="flex justify-around align-center pb-15px">
       <div className="self-start">
         {/* <RangeSlider
+          name={"Speed"}
           type={"speed"}
-          minimum={10}
-          maximum={100}
-          initialvalue={60}
-          step={10}
+          minimum={0}
+          maximum={10}
+          initialvalue={0}
+          step={1}
           value={props.speed}
-          setVal={props.setSpeed}
+          setValue={props.setSpeed}
         ></RangeSlider> */}
         <RangeSlider
           name={"Size"}

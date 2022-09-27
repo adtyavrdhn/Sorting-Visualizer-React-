@@ -10,12 +10,13 @@ import SortBtn from "./SortButton";
 interface divs {
   arr: number[];
   algo: string;
+  speed: number;
 }
 
 function Towers(props: divs) {
   const [towers, setTowers] = useState<JSX.Element[]>([]);
   const [narr, setnarr] = useState([0]);
-  const [isSorted, setisSorted] = useState(false);
+  const [time, setTime] = useState("");
 
   function changeArr(arr: number[]) {
     const newArr = produce(arr, (draft) => {
@@ -28,24 +29,28 @@ function Towers(props: divs) {
     changeArr(props.arr);
   }, [props.arr]);
 
-  function sort(algorithm: string) {
+  async function sort(algorithm: string) {
+    let startTime = performance.now();
     switch (algorithm) {
       case "Bubble Sort":
-        bubbleSort([...narr], changeArr);
+        await bubbleSort([...narr], changeArr, props.speed);
         break;
       case "Quick Sort":
-        quickSort([...narr], 0, narr.length - 1, changeArr);
+        await quickSort([...narr], 0, narr.length - 1, changeArr, props.speed);
         break;
       case "Selection Sort":
-        selectionSort([...narr], narr.length, changeArr);
+        await selectionSort([...narr], narr.length, changeArr, props.speed);
         break;
       case "Insertion Sort":
-        insertionSort([...narr], narr.length, changeArr);
+        await insertionSort([...narr], narr.length, changeArr, props.speed);
         break;
       case "Merge Sort":
-        MergeSort([...narr], changeArr);
+        await MergeSort([...narr], changeArr, props.speed);
         break;
     }
+
+    let endTime = performance.now();
+    setTime(`${(endTime - startTime).toPrecision(8)} milliseconds`);
   }
 
   useEffect(() => {
@@ -65,6 +70,7 @@ function Towers(props: divs) {
     <div className="grid lg:gap-3 mt-1">
       <SortBtn sortingAlgo={props.algo} sort={sort}></SortBtn>
       <div className="flex gap-0.5 mt-1 justify-center">{towers}</div>
+      <span className="text-center">Time Taken: {time}</span>
     </div>
   );
 }

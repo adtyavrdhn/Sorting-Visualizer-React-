@@ -14,26 +14,27 @@ function App() {
   const [sizeValue, setSizeValue] = useState(20);
   const [arr, setArr] = useState([0]);
   const [sarr, setSarr] = useState([0]);
+  const [speed, setSpeed] = useState(0);
 
   // sorting using all the sorting algorithms one by one
   async function allSort() {
-    await bubbleSort(arr, setArr);
+    await bubbleSort(arr, setArr, speed);
 
     setArr([...sarr]);
     await delay(45);
-    await quickSort([...sarr], 0, arr.length - 1, setArr);
+    await quickSort([...sarr], 0, arr.length - 1, setArr, speed);
 
     setArr([...sarr]);
     await delay(45);
-    await selectionSort([...sarr], arr.length, setArr);
+    await selectionSort([...sarr], arr.length, setArr, speed);
 
     setArr([...sarr]);
     await delay(45);
-    await insertionSort([...sarr], arr.length, setArr);
+    await insertionSort([...sarr], arr.length, setArr, speed);
     setArr([...sarr]);
 
     await delay(45);
-    await MergeSort([...sarr], setArr);
+    await MergeSort([...sarr], setArr, speed);
   }
   // changing array whenever the size slider changes
   useEffect(() => {
@@ -49,6 +50,8 @@ function App() {
   const Headerprops = {
     sizeValue: sizeValue,
     setSizeValue: setSizeValue,
+    speed: speed,
+    setSpeed: setSpeed,
     allSort: allSort,
   };
   return (
@@ -56,11 +59,11 @@ function App() {
       <h1 className="text-center font-semibold text-4xl">Sorting Visualizer</h1>
       <Header {...Headerprops} />
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-4 sm:grid-cols-1">
-        <Towers arr={[...arr]} algo={"Bubble Sort"}></Towers>
-        <Towers arr={[...arr]} algo={"Selection Sort"}></Towers>
-        <Towers arr={[...arr]} algo={"Merge Sort"}></Towers>
-        <Towers arr={[...arr]} algo={"Insertion Sort"}></Towers>
-        <Towers arr={[...arr]} algo={"Quick Sort"}></Towers>
+        <Towers arr={[...arr]} algo={"Bubble Sort"} speed={speed}></Towers>
+        <Towers arr={[...arr]} algo={"Selection Sort"} speed={speed}></Towers>
+        <Towers arr={[...arr]} algo={"Merge Sort"} speed={speed}></Towers>
+        <Towers arr={[...arr]} algo={"Insertion Sort"} speed={speed}></Towers>
+        <Towers arr={[...arr]} algo={"Quick Sort"} speed={speed}></Towers>
       </div>
     </div>
   );

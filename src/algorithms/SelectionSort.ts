@@ -3,7 +3,8 @@ import { delay, swap } from "./utility";
 export default async function selectionSort(
   array: number[],
   n: number,
-  setArr: Function
+  setArr: Function,
+  speed: number
 ) {
   console.log("Selection Sort");
   let i, j, min_idx;
