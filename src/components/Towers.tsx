@@ -25,6 +25,14 @@ function Towers(props: divs) {
     setnarr(newArr);
   }
 
+  enum Sorts {
+    Bubble = "Bubble Sort",
+    Selection = "Selection Sort",
+    Insertion = "Insertion Sort",
+    Merge = "Merge Sort",
+    Quick = "Quick Sort",
+  }
+
   useEffect(() => {
     changeArr(props.arr);
   }, [props.arr]);
@@ -32,19 +40,19 @@ function Towers(props: divs) {
   async function sort(algorithm: string) {
     let startTime = performance.now();
     switch (algorithm) {
-      case "Bubble Sort":
+      case Sorts.Bubble:
         await bubbleSort([...narr], changeArr, props.speed);
         break;
-      case "Quick Sort":
+      case Sorts.Quick:
         await quickSort([...narr], 0, narr.length - 1, changeArr, props.speed);
         break;
-      case "Selection Sort":
+      case Sorts.Selection:
         await selectionSort([...narr], narr.length, changeArr, props.speed);
         break;
-      case "Insertion Sort":
+      case Sorts.Insertion:
         await insertionSort([...narr], narr.length, changeArr, props.speed);
         break;
-      case "Merge Sort":
+      case Sorts.Merge:
         await MergeSort([...narr], changeArr, props.speed);
         break;
     }
