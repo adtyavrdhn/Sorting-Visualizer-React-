@@ -2,40 +2,12 @@ import React, { useState, useEffect } from "react";
 import "tailwindcss/tailwind.css";
 import "./App.css";
 import Header from "./components/Header";
-import bubbleSort from "./algorithms/bubbleSort";
-import quickSort from "./algorithms/quickSort";
-import selectionSort from "./algorithms/SelectionSort";
-import insertionSort from "./algorithms/insertionSort";
-import MergeSort from "./algorithms/mergeSort";
 import Towers from "./components/Towers";
-import { delay } from "./algorithms/utility";
 
 function App() {
   const [sizeValue, setSizeValue] = useState(20);
   const [arr, setArr] = useState([0]);
-  const [sarr, setSarr] = useState([0]);
   const [speed, setSpeed] = useState(0);
-
-  // sorting using all the sorting algorithms one by one
-  async function allSort() {
-    await bubbleSort(arr, setArr, speed);
-
-    setArr([...sarr]);
-    await delay(45);
-    await quickSort([...sarr], 0, arr.length - 1, setArr, speed);
-
-    setArr([...sarr]);
-    await delay(45);
-    await selectionSort([...sarr], arr.length, setArr, speed);
-
-    setArr([...sarr]);
-    await delay(45);
-    await insertionSort([...sarr], arr.length, setArr, speed);
-    setArr([...sarr]);
-
-    await delay(45);
-    await MergeSort([...sarr], setArr, speed);
-  }
   // changing array whenever the size slider changes
   useEffect(() => {
     const newArr: number[] = [];
@@ -44,7 +16,6 @@ function App() {
       if (newArr.indexOf(r) === -1) newArr.push(r);
     }
     setArr(newArr);
-    setSarr([...newArr]);
   }, [sizeValue]);
   /////////////////////////////
   const Headerprops = {
@@ -52,7 +23,6 @@ function App() {
     setSizeValue: setSizeValue,
     speed: speed,
     setSpeed: setSpeed,
-    allSort: allSort,
   };
   return (
     <div className="w-full">

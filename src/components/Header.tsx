@@ -4,7 +4,6 @@ import RangeSlider from "./RangeSlider";
 interface ChangeInput {
   sizeValue: number;
   setSizeValue: Function;
-  allSort: Function;
   speed: number;
   setSpeed: Function;
 }
