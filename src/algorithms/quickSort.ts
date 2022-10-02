@@ -4,7 +4,7 @@ async function partition(
   items: number[],
   left: number,
   right: number,
-  setArr: Function,
+  changeArr: Function,
   speed: number
 ) {
   console.log("Quick Sort");
@@ -21,7 +21,7 @@ async function partition(
     if (i <= j) {
       swap(items, i, j);
       await delay(15);
-      setArr([...items]);
+      changeArr(items);
       i++;
       j--;
     }
@@ -33,7 +33,7 @@ export default async function quickSort(
   arr: number[],
   left: number,
   right: number,
-  setArr: Function,
+  changeArr: Function,
   speed: number
 ) {
   let index;
@@ -41,15 +41,12 @@ export default async function quickSort(
   const items: number[] = arr;
   if (items.length > 1) {
     await delay(15);
-    index = await partition(items, left, right, setArr, speed);
+    index = await partition(items, left, right, changeArr, speed);
     if (left < index - 1) {
-      await quickSort(items, left, index - 1, setArr, speed);
+      await quickSort(items, left, index - 1, changeArr, speed);
     }
     if (index < right) {
-      await quickSort(items, index, right, setArr, speed);
+      await quickSort(items, index, right, changeArr, speed);
     }
   }
-
-  arr = [...items];
-  return arr;
 }

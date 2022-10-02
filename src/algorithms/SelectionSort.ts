@@ -3,7 +3,7 @@ import { delay, swap } from "./utility";
 export default async function selectionSort(
   array: number[],
   n: number,
-  setArr: Function,
+  changeArr: Function,
   speed: number
 ) {
   console.log("Selection Sort");
@@ -18,9 +18,6 @@ export default async function selectionSort(
     }
     swap(arr, min_idx, i);
     await delay(15);
-    setArr([...arr]);
+    changeArr(arr);
   }
-
-  array = [...arr];
-  return array;
 }

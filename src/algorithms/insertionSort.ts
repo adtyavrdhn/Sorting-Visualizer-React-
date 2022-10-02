@@ -3,7 +3,7 @@ import { delay } from "./utility";
 export default async function insertionSort(
   array: number[],
   n: number,
-  setArr: Function,
+  changeArr: Function,
   speed: number
 ) {
   console.log("Insertion Sort");
@@ -20,9 +20,7 @@ export default async function insertionSort(
       await delay(15);
     }
     arr[j + 1] = key;
-    setArr([...arr]);
+    changeArr([...arr]);
     await delay(15);
   }
-  array = [...arr];
-  return array;
 }

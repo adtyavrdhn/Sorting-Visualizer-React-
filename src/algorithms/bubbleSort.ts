@@ -2,7 +2,7 @@ import { delay, swap } from "./utility";
 
 export default async function bubbleSort(
   arr: number[],
-  setArr: Function,
+  changeArr: Function,
   speed: number
 ) {
   const size = arr.length;
@@ -16,11 +16,9 @@ export default async function bubbleSort(
       if (array[j] > array[j + 1]) {
         await delay(15);
         swap(array, j, j + 1);
-        setArr([...array]);
+        changeArr(array);
       }
     }
     await delay(5);
   }
-  arr = [...array];
-  return arr;
 }

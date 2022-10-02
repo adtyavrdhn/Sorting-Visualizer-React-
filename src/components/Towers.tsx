@@ -7,14 +7,13 @@ import MergeSort from "../algorithms/mergeSort";
 import produce from "immer";
 import SortBtn from "./SortButton";
 
-interface divs {
-  arr: number[];
-  algo: string;
-  speed: number;
-}
+// interface divs {
+//   arr: number[];
+//   algo: string;
+//   speed: number;
+// }
 
-function Towers(props: divs) {
-  const [towers, setTowers] = useState<JSX.Element[]>([]);
+function Towers(props: any) {
   const [narr, setnarr] = useState([0]);
   const [time, setTime] = useState("");
 
@@ -25,14 +24,6 @@ function Towers(props: divs) {
     setnarr(newArr);
   }
 
-  enum Sorts {
-    Bubble = "Bubble Sort",
-    Selection = "Selection Sort",
-    Insertion = "Insertion Sort",
-    Merge = "Merge Sort",
-    Quick = "Quick Sort",
-  }
-
   useEffect(() => {
     changeArr(props.arr);
     setTime("");
@@ -41,19 +32,19 @@ function Towers(props: divs) {
   async function sort(algorithm: string) {
     let startTime = performance.now();
     switch (algorithm) {
-      case Sorts.Bubble:
+      case props.Sorts.Bubble:
         await bubbleSort([...narr], changeArr, props.speed);
         break;
-      case Sorts.Quick:
+      case props.Sorts.Quick:
         await quickSort([...narr], 0, narr.length - 1, changeArr, props.speed);
         break;
-      case Sorts.Selection:
+      case props.Sorts.Selection:
         await selectionSort([...narr], narr.length, changeArr, props.speed);
         break;
-      case Sorts.Insertion:
+      case props.Sorts.Insertion:
         await insertionSort([...narr], narr.length, changeArr, props.speed);
         break;
-      case Sorts.Merge:
+      case props.Sorts.Merge:
         await MergeSort([...narr], changeArr, props.speed);
         break;
     }
@@ -62,23 +53,20 @@ function Towers(props: divs) {
     setTime(`${(endTime - startTime).toPrecision(8)} milliseconds`);
   }
 
-  useEffect(() => {
-    const temptowers: JSX.Element[] = narr.map((n: number, index: number) => (
-      <div
-        className={
-          "bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-md"
-        }
-        key={index}
-        style={{ height: `${n / 10}rem`, width: `0.7%` }}
-      ></div>
-    ));
-    setTowers(temptowers);
-  }, [narr]);
-
   return (
     <div className="grid lg:gap-3 mt-1">
       <SortBtn sortingAlgo={props.algo} sort={sort}></SortBtn>
-      <div className="flex gap-0.5 mt-1 justify-center">{towers}</div>
+      <div className="flex gap-0.5 mt-1 justify-center">
+        {narr.map((n: number, index: number) => (
+          <div
+            className={
+              "bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-md"
+            }
+            key={index}
+            style={{ height: `${n / 10}rem`, width: `0.7%` }}
+          ></div>
+        ))}
+      </div>
       <span className="text-center">Time Taken: {time}</span>
     </div>
   );
